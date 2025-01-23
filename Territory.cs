@@ -26,9 +26,11 @@ namespace GraphicalRisk
             int j = polygon.Count() - 1;
             for (int i = 0; i < polygon.Count(); i++)
             {
+                // For each line segment of the polygon, see if the y value in question is between the y values of the two endpoints
                 if (polygon[i].y < testPoint.y && polygon[j].y >= testPoint.y || 
                     polygon[j].y < testPoint.y && polygon[i].y >= testPoint.y)
                 {
+                    // I can not wrap my head around why this works. I found this code online, iirc.
                     if (polygon[i].x + (testPoint.y - polygon[i].y) / (polygon[j].y - 
                         polygon[i].y) * (polygon[j].x - polygon[i].x) < testPoint.x)
                     {
